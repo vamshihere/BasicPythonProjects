@@ -13,7 +13,7 @@ def play():
 def win(user,comp):
     if(user == comp):
         return 0
-    if((user == 'r' and comp == 's') or (user == 'p' and comp == 'r') or (user == 's' and comp == 'p')):
+    elif((user == 'r' and comp == 's') or (user == 'p' and comp == 'r') or (user == 's' and comp == 'p')):
         return 1
     else:
         return -1
