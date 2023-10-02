@@ -85,11 +85,29 @@ def play(game, x_player, o_player, print_game = True):
     if(game.current_winner == None and print_game):
         print('Its a tie!')
 
+# if(__name__ == '__main__'):
+#     x_player = HumanPlayer('X') # for the choice to be random, comment 90 line and uncomment 91 line
+#     o_player = GeniusComputerPlayer('O')
+#     #o_player = RandomComputerPlayer('O')
+#     t = TicTacToe()
+#     play(t, x_player, o_player, print_game=True)
+
+# uncomment the above if block and comment the below if block for one vs one game    
 if(__name__ == '__main__'):
-    x_player = HumanPlayer('X') # for the choice to be random, comment 90 line and uncomment 91 line
-    o_player = GeniusComputerPlayer('O')
-    #o_player = RandomComputerPlayer('O')
-    t = TicTacToe()
-    play(t, x_player, o_player, print_game=True)
-    
-    
+    x_wins = 0
+    o_wins = 0
+    ties = 0
+    for i in range(100):
+        x_player = RandomComputerPlayer('X') 
+        o_player = GeniusComputerPlayer('O')
+        #o_player = RandomComputerPlayer('O')
+        t = TicTacToe()
+        result = play(t, x_player, o_player, print_game=False) 
+        if(result == 'X'):
+            x_wins+=1
+        elif(result == 'O'):
+            o_wins+=1
+        else:
+            ties+=1      
+
+    print(f"After 100 games, X won {x_wins} and O won {o_wins} and the game tied {ties} times")   
