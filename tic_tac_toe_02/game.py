@@ -64,7 +64,7 @@ def play(game, x_player, o_player, print_game = True):
     # print game is introduced to make sure that, if we really want to print our board or not
     letter = 'X' #assume its the starting point
 
-    while(game.is_empty_squares):
+    while(game.is_empty_squares()):
         if letter == 'O':
             square = o_player.get_move(game)
         else:
@@ -86,7 +86,7 @@ def play(game, x_player, o_player, print_game = True):
         print('Its a tie!')
 
 if(__name__ == '__main__'):
-    x_player = HumanPlayer('X')
+    x_player = HumanPlayer('X') # for the choice to be random, comment 90 line and uncomment 91 line
     o_player = GeniusComputerPlayer('O')
     #o_player = RandomComputerPlayer('O')
     t = TicTacToe()
